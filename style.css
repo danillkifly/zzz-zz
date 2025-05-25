@@ -1,0 +1,641 @@
+*,
+::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+#backgroundCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  background: white;
+  filter: blur(1px); /* Efek blur */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 150px;
+  backdrop-filter: none;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  background-color: tomato;
+}
+
+.navbar.scrolled {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 99, 71, 0.9);
+}
+
+.nav-links a {
+  position: relative;
+  color: whitesmoke;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: blueviolet;
+}
+
+.logo {
+  color: wheat;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: yellow;
+  cursor: pointer;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 250px;
+  flex-wrap: wrap;
+  padding: 80px 150px;
+  min-height: 80vh;
+  box-sizing: border-box;
+}
+
+/* Kotak teks */
+.text-box {
+  max-width: 500px;
+  padding: 30px;
+  background: #00ccf5;
+  border: 8px solid black;
+  box-shadow: 8px 8px 0 black;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.text-box:hover {
+  background: transparent;
+  border: 8px solid yellowgreen;
+  transform: translateY(-7px);
+}
+
+.whoami {
+  color: seagreen;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.danill {
+  color: wheat;
+}
+
+.kifly {
+  color: blueviolet;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.roles {
+  margin-top: 15px;
+  color: navy;
+}
+
+.code {
+  margin-top: 15px;
+  color: darkmagenta;
+  font-weight: bold;
+}
+
+.features {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card hijau */
+.cardG {
+  background: #00cc44;
+  width: 230px;
+  padding: 1rem;
+  border: 5px solid black;
+  box-shadow: 7px 7px 0 black;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.cardG:hover {
+  border: 5px solid hotpink;
+  transform: translateY(-7px);
+}
+
+/* Card orange */
+.cardO {
+  background: #ff7f00;
+  width: 100px;
+  padding: 1rem;
+  border: 5px solid black;
+  box-shadow: 7px 7px 0 black;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.cardO:hover {
+  border: 5px solid gainsboro;
+  transform: translateY(-7px);
+}
+
+/* Photo box */
+.photo-box {
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  border: 8px solid yellow;
+  box-shadow: 10px 10px 0 black;
+  box-sizing: border-box;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+  transition: filter 0.3s ease;
+}
+
+.photo-box img:hover {
+  filter: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    gap: 20px;
+    right: 20px;
+    background: tomato;
+    padding: 15px;
+    border: 6px solid black;
+    box-shadow: 8px 8px 0 black;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .home {
+    padding: 100px 20px 20px 20px;
+    gap: 50px;
+  }
+}
+
+.work {
+  padding-top: 80px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.judul {
+  display: flex;
+  justify-content: center;
+}
+
+.project {
+  padding: 0 70px 50px 70px;
+  box-sizing: border-box;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background-color: teal;
+  padding: 20px;
+  border: 6px solid black;
+  box-shadow: 8px 8px 0 black;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+  background-color: transparent;
+  border: 6px solid blue;
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions h2 {
+  color: cornflowerblue;
+  font-size: 2em;
+}
+
+.actions i {
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: color 0.2s;
+  color: black;
+}
+
+.actions i:hover {
+  color: olive;
+}
+
+.project-card p {
+  color: purple;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  background-color: chartreuse;
+  border: 4px solid black;
+  box-shadow: 6px 6px 0 black;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.github-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 70px;
+  box-sizing: border-box;
+}
+
+.github-card {
+  padding: 20px;
+  background-color: bisque;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 6px solid black;
+  box-shadow: 8px 8px 0 black;
+  box-sizing: border-box;
+}
+
+.github-card:hover {
+  background-color: aqua;
+  transform: translateY(-7px);
+}
+
+.github-card h3 {
+  margin-bottom: 16px;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 1.3rem;
+  user-select: none;
+}
+
+.github-profile,
+.github-contributions {
+  text-align: center;
+}
+
+.github-profile img {
+  width: 350px;
+  height: 140px;
+  transition: transform 0.2s ease;
+  object-fit: contain;
+}
+
+.github-contributions img {
+  width: 800px;
+  height: 140px;
+  object-fit: contain;
+}
+
+.github-profile img:hover {
+  transform: scale(1.02);
+}
+
+.contributions-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.contributions-scroll img {
+  min-width: 600px;
+  height: auto;
+  display: block;
+}
+
+.contributions-scroll::-webkit-scrollbar {
+  height: 7px;
+  background-color: darkcyan;
+}
+
+.contributions-scroll::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+}
+
+@media (max-width: 768px) {
+  .project {
+    padding: 0 20px 50px 10px;
+  }
+
+  .github-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 0 10px;
+  }
+
+  .github-card {
+    width: 100%;
+  }
+
+  .github-profile img {
+    width: 300px;
+    height: 120px;
+    transition: transform 0.2s ease;
+  }
+
+  .github-profile,
+  .github-contributions h3 {
+    font-size: 1em;
+  }
+}
+
+.networks {
+  padding-top: 80px;
+  height: auto; /* tinggi mengikuti isi */
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.judul h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-family: "Courier New", Courier, monospace;
+  color: #222;
+}
+
+.networks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.networks-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 30px 20px;
+  border: 6px solid black;
+  box-shadow: 8px 8px 0 black;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.networks-card:hover {
+  background: transparent;
+  border-color: gold;
+  transform: translateY(-7px);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.text h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.arrow {
+  font-size: 1.3rem;
+  color: white;
+  padding: 5px 10px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  .networks {
+    padding: 80px 20px 0 10px;
+  }
+
+  .networks-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto; /* mengikuti isi */
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.judul h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-family: "Courier New", Courier, monospace;
+  color: #222;
+}
+
+.contact-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.question {
+  background: gold;
+  border: 6px solid black;
+  box-shadow: 8px 8px 0 black;
+  padding: 40px 60px;
+  max-width: 600px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: default;
+}
+
+.question:hover {
+  border-color: steelblue;
+  background: transparent;
+  transform: translateY(-7px);
+}
+
+.question h5 {
+  font-size: 1rem;
+  color: purple;
+  margin: 0;
+}
+
+.question h3 a {
+  color: green;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.question h3 a:hover {
+  text-decoration: underline royalblue;
+}
+
+.contact-social {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.contact-social img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: inherit;
+  transition: transform 0.2s ease;
+}
+
+.contact-social a:hover img {
+  transform: scale(1.1);
+}
+
+footer {
+  position: fixed;
+  bottom: 5px;
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 10;
+}
+
+.by {
+  padding: 10px 20px;
+  border: 4px solid black;
+  box-shadow: 6px 6px 0 black;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: 80px 20px 80px 10px;
+  }
+
+  .question {
+    padding: 30px 20px;
+    max-width: 100%;
+  }
+
+  footer {
+    bottom: 0;
+  }
+
+  .by {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
