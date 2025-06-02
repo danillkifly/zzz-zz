@@ -286,7 +286,7 @@ h1 {
 
 .actions h2 {
   color: cornflowerblue;
-  font-size: 2em;
+  font-size: 1.6em;
 }
 
 .actions i {
@@ -413,6 +413,10 @@ h1 {
     width: 300px;
     height: 120px;
     transition: transform 0.2s ease;
+  }
+
+  .actions h2 {
+    font-size: 1.2em;
   }
 
   .github-profile,
